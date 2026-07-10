@@ -30,7 +30,7 @@ class LineFeatures:
     # 점 3개 이상일 때 이차함수의 a값
     curve_a: Optional[float] = None
 
-    # 곡선일 때 두 번째 점에서의 접선 각도
+    # 곡선일 때 중앙점에서의 접선 각도
     tangent_angle: Optional[float] = None
 
     # 로봇 중심선과 라인 사이 거리
@@ -83,7 +83,7 @@ class LineDecision:
             if abs(distance) >= self.out_distance:
                 return LineStatus.Follow_Point, 0.0
 
-            # 2-2. 라인이 중심에서 어느 정도 벗어나 있으면 좌/우 이동
+            # 라인이 중심에서 어느 정도 벗어나 있으면 좌/우 이동
             if abs(distance) >= self.move_distance:
                 if distance < 0:
                     return LineStatus.Left_Forward, 0.0
