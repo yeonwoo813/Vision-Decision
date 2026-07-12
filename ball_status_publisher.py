@@ -220,10 +220,10 @@ class BallDecision:
         return angle
 
 class BallStatusPublisher:
-    def __init__(self, node: Node):
+    def __init__(self, node: Node, topic_name: str = 'ball_result'):
         self.node = node
         self.ball_decision = BallDecision()
-        self.ball_pub = self.node.create_publisher(BallResult, 'ball_result', 10)
+        self.ball_pub = self.node.create_publisher(BallResult, topic_name, 10)
 
     def publish_ball_status(
         self,

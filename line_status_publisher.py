@@ -135,10 +135,10 @@ class LineDecision:
         
 
 class LineStatusPublisher:
-    def __init__(self, node:Node):
+    def __init__(self, node: Node, topic_name: str = 'line_result'):
         self.node = node
         self.line_decision = LineDecision()
-        self.line_pub = self.node.create_publisher(LineResult, 'line_result', 10)
+        self.line_pub = self.node.create_publisher(LineResult, topic_name, 10)
 
     #라인 상태를 판단하고 Publish하는 함수    
     def publish_line_status(

@@ -25,10 +25,10 @@ class HurdleDecision:
         return HurdleStatus.Hurdle_None, 0.0
     
 class HurdleStatusPublisher:
-    def __init__(self, node:Node):
+    def __init__(self, node: Node, topic_name: str = 'hurdle_result'):
         self.node = node
         self.hurdle_decision = HurdleDecision()
-        self.hurdle_pub = self.node.create_publisher(HurdleResult, 'hurdle_result', 10)
+        self.hurdle_pub = self.node.create_publisher(HurdleResult, topic_name, 10)
 
     #publish 함수
     def publish_hurdle_status(
